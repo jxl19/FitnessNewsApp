@@ -1,0 +1,14 @@
+#nav{
+    background-color: #343436;
+    color:#f5f5f5;
+}
+#p-news:hover, #update-info:hover, #logout:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgb(216, 116, 216);
+    text-underline-offset: 5px;
+}
+
+#logo{
+    cursor: pointer;
+}
