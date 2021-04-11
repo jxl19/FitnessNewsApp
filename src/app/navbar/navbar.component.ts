@@ -24,4 +24,8 @@ export class NavbarComponent implements OnInit {
   goToHomePage() {
     this.router.navigate(['/homepage']);
   }
+
+  handleUpdateInfo() {
+    this.router.navigate(['/updateinfo'])
+  }
 }
