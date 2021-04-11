@@ -1,4 +1,15 @@
-<!-- <div [ngStyle]="{'background':'url(https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/1/man-exercising-workout-fitness-pablo-romero.jpg)'}"></div> -->
-<div class="landing"></div>
-<div (click)="routeToLogin()" id="login-route">Login</div>
-<!-- "{'background-image':'url(./assets/img/bg5.jpg)'}" -->
+<!-- <div (click)="routeToLogin()" id="login-route">Login</div> -->
+<div id="landing-container">
+    <div id="left">
+        <p id="logophrase">FitnessNews</p>
+        <p id="phrase">A place for all your fitness news. Subscribe today to get tips on fitness!</p>
+    </div>
+    <div id="right">
+        <div id="landing-login">
+            <div class="landing-button-login" (click)="loginPage()">Login</div>
+        </div>
+        <div id="register">
+            <div class="landing-button-reg" (click)="registerPage()">Register</div>
+        </div>
+    </div>
+</div>

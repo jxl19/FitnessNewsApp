@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateNewsletterComponent } from './create-newsletter/create-newsletter.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CreateNewsletterComponent } from './create-newsletter/create-newsletter
     NavbarComponent,
     NewsletterComponent,
     CreateNewsletterComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,

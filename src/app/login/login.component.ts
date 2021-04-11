@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../models/login';
 import { LoginServiceService } from '../services/login-service.service';
-// import {HttpClient} from '@angu'
 
 @Component({
   selector: 'app-login',
@@ -16,8 +15,15 @@ export class LoginComponent implements OnInit {
   password:string ="";
   invalid:string="";
   login: Login | any;
+
   ngOnInit(): void {
+    document.body.classList.add('landing');
   }
+
+  ngOnDestroy(): void {
+    document.body.classList.remove('landing');
+  }
+  
   handleSubmit(e:any) {
     e.preventDefault();
     this.loginService.loginUser(this.email).subscribe(data=> {
@@ -37,5 +43,11 @@ export class LoginComponent implements OnInit {
   }
   handlePassword(password:string) {
     this.password = password;
+  }
+  goToLanding() {
+    this.router.navigate(['/']);
+  }
+  requestPassword() {
+    console.log("req pass");
   }
 }

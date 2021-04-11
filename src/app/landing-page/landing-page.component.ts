@@ -17,8 +17,12 @@ export class LandingPageComponent implements OnInit {
     document.body.classList.remove('landing');
   }
 
-  routeToLogin() {
-    this.router.navigate(['/login'])
+  loginPage() {
+    this.router.navigate(['/login']);
+  }
+
+  registerPage() {
+    console.log("go to register");
   }
 
 }
