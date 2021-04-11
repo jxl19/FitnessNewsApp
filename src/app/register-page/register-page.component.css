@@ -1,0 +1,58 @@
+#register-container {
+    height: 100vh;
+    background-color: #2f2f3180;
+}
+#head-container{
+    /* border: 3px solid black; */
+    width: 15%; 
+    text-align: center;
+}
+
+.card {
+    margin:auto;
+    top: 10vh;
+    border-radius: 0;
+    background-color: #2f2f31; 
+    color: #f5f5f5;
+    height: 75vh;
+    width: 25rem;
+}
+
+.card-title{
+    margin-bottom: 8vh;
+}
+
+#register-head {
+    color: #f5f5f5;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 30px;
+}
+#register-input {
+    background-color: #2f2f31;
+    border-radius: 0;
+    color: #f5f5f5;
+}
+
+#register-button {
+    margin-top: 5vh;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    width:30%;
+    padding:5px;
+    background-color: #2f2f31;
+    color: white;
+}
+
+#register-button:hover{
+    background-color: #434344;
+}
+
+#invalid-pass{
+    text-align: center;
+    font-size: 16px;
+}
+#req-pass{
+    margin-bottom: 0;
+}

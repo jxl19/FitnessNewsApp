@@ -5,8 +5,8 @@
 #p-news:hover, #update-info:hover, #logout:hover, #create-newsletter:hover {
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-color: rgb(216, 116, 216);
-    text-underline-offset: 5px;
+    text-decoration-color: #9c5a9c;
+    text-underline-offset: 6px;
 }
 
 #logo{

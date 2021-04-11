@@ -22,7 +22,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   registerPage() {
-    console.log("go to register");
+    this.router.navigate(['/register']);
   }
 
 }
