@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Update Information</h5>
+          <form #form='ngForm' ngNativeValidate>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" id="update-input" aria-describedby="emailHelp" placeholder="Email"[(ngModel)]="email" (ngModelChange)="handleEmail($event)" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="first-name" class="form-control" id="update-input" placeholder="First Name" [(ngModel)]="firstName" (ngModelChange)="handleFirstName($event)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="last-name" class="form-control" id="update-input" placeholder="Last Name" [(ngModel)]="lastName" (ngModelChange)="handleLastName($event)" required>
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" id="update-input" placeholder="Password" [(ngModel)]="password" (ngModelChange)="handlePassword($event)" required>
+              </div>
+              <div class="form-group">
+                <input type="password" name="confirm-password" class="form-control" id="update-input" placeholder="Confirm Password" [(ngModel)]="confirmPassword" (ngModelChange)="handleConfirmPassword($event)" required>
+              </div>
+            <button id="update-button" (click)="handleSubmit($event)">Update</button>
+            <div>{{error}}</div>
+          </form>
+        </div>
+      </div>

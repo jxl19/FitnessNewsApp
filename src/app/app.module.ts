@@ -9,6 +9,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateNewsletterComponent } from './create-newsletter/create-newsletter.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { UpdateInformationComponent } from './update-information/update-information.component';
+import { PreviousNewsletterComponent } from './previous-newsletter/previous-newsletter.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,16 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     HomePageComponent,
     NavbarComponent,
     NewsletterComponent,
+    CreateNewsletterComponent,
+    RegisterPageComponent,
+    UpdateInformationComponent,
+    PreviousNewsletterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

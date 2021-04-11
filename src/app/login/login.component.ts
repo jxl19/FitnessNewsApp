@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Login } from '../models/login';
+import { LoginServiceService } from '../services/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,26 +10,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginServiceService, private router: Router) { }
   email:string = "";
   password:string ="";
-  // user: [
-  //   {
+  invalid:string="";
+  login: Login | any;
 
-  //   }
-  // ]
   ngOnInit(): void {
+    document.body.classList.add('landing');
   }
+
+  ngOnDestroy(): void {
+    document.body.classList.remove('landing');
+  }
+  
   handleSubmit(e:any) {
     e.preventDefault();
-    alert(`email: ${this.email} password: ${this.password}`)
+    this.loginService.loginUser(this.email).subscribe(data=> {
+      if(data.id === this.email && data.password === this.password){
+        this.router.navigate(['/homepage'])
+      }
+      this.invalid = "Invalid Username or Password";
+      console.log(data);
+    },
+    (error) => {
+      console.log(error);
+      this.invalid = "Invalid Username or Password";
+    })
   }
   handleEmail(email:string) {
-    console.log('email', email);
     this.email = email;
   }
   handlePassword(password:string) {
-    console.log('password', password);
     this.password = password;
+  }
+  goToLanding() {
+    this.router.navigate(['/']);
+  }
+  requestPassword() {
+    console.log("req pass");
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
     document.body.classList.add('landing');
@@ -15,6 +15,14 @@ export class LandingPageComponent implements OnInit {
 
   ngOnDestroy(): void {
     document.body.classList.remove('landing');
+  }
+
+  loginPage() {
+    this.router.navigate(['/login']);
+  }
+
+  registerPage() {
+    this.router.navigate(['/register']);
   }
 
 }
