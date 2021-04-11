@@ -1,0 +1,74 @@
+#newsletter{ 
+    top: 5vh;
+    width: 80%;
+    height: 60vh;
+    margin: auto;
+    overflow-y: auto;
+    border: none;
+    border-radius: 0;
+    background-color: #16161d;
+}
+
+#n-body{
+    color: #f5f5f5;
+}
+
+#n-header{
+    margin-top: 1vh;
+    color: #f5f5f5;
+    border-radius: 0;
+    border:none;
+}
+
+#newsletter::-webkit-scrollbar {
+    width: 10px;
+}
+
+#newsletter::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #5b5e6c; 
+}
+
+#newsletter::-webkit-scrollbar-thumb {
+    background: #5b5e6c; 
+}
+#newsletter::-webkit-scrollbar-thumb:hover {
+    background:#e1e1e1; 
+}
+
+#download {
+    border: 1px solid white;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+#download:hover{
+    background-color: #4c4c4cb8;
+}
+
+#button-container{
+    width:100%;
+    text-align: center;
+    margin-top: 10vh;
+}
+#upload-newsletter{
+    color: #f5f5f5;
+    border: 1px solid white;
+    width: 30%;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+#upload-newsletter:hover {
+    background-color: #4c4c4cb8;
+}
+#news-content, #news-header, #news-footer{
+    padding:5px;
+    background: #2f2f31;
+    border: 1px solid #f5f5f5;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+.card-body{
+    flex:none;
+}

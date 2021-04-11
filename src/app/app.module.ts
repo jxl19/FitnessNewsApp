@@ -10,6 +10,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateNewsletterComponent } from './create-newsletter/create-newsletter.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     NavbarComponent,
     NewsletterComponent,
+    CreateNewsletterComponent,
   ],
   imports: [
     BrowserModule,
