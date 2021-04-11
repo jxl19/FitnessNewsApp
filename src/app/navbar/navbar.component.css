@@ -2,7 +2,7 @@
     background-color: #343436;
     color:#f5f5f5;
 }
-#p-news:hover, #update-info:hover, #logout:hover {
+#p-news:hover, #update-info:hover, #logout:hover, #create-newsletter:hover {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: rgb(216, 116, 216);
