@@ -1,1 +1,17 @@
-<p>previous-newsletter works!</p>
+<app-navbar></app-navbar>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Author Name</th>
+      </tr>
+    </thead>
+    <tbody *ngFor = "let news of newsletters">
+      <tr id="news-row" (click)="goToNewsletter(news.id)">
+        <td>{{news.datepublished}}</td>
+        <td>{{news.header}}</td>
+        <td>{{news.authfirstname}} {{news.authlastname}}</td>
+      </tr>
+    </tbody>
+  </table>

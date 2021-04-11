@@ -1,0 +1,13 @@
+{
+
+    "users": [
+        {"id": "admin@email.com", "superUser" : true,  "password" : "password", "userID" : 1},
+        {"id": "user@email.com", "superUser" : false,  "password" : "pass", "userID" : 2}
+    ],
+    "newsletters": [
+        {"id": 0, "datepublished": "2021-04-10", "authfirstname": "Jun", "authlastname": "Lei", "header":"Some title", "content": "Some Content", "footer":"some footer"},
+        {"id": 1, "datepublished": "2020-09-12", "authfirstname": "Larissa", "authlastname": "Santos", "header":"Another title", "content": "Some Other Content\n More content", "footer":"another footer"},
+        {"id": 2, "datepublished": "2021-03-03", "authfirstname": "Ed", "authlastname": "Aylott", "header":"Different Title", "content": "Some Other Content\n More content\n stuff", "footer":"footer footer"}
+    ]
+    
+}

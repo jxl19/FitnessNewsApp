@@ -1,0 +1,13 @@
+.table {
+    border: 1px solid white;
+    margin:auto;
+    margin-top:5vh;
+    width: 80%;
+    color: #f5f5f5;
+    background-color: #16161d;
+}
+
+#news-row:hover{
+    background-color: #4c4c4c6b;
+    cursor: pointer;
+}
