@@ -1,8 +1,0 @@
-{
-
-    "users": [
-        {"id": "admin@email.com", "superUser" : true,  "password" : "password", "userID" : 1},
-        {"id": "user@email.com", "superUser" : false,  "password" : "pass", "userID" : 2}
-    ]
-    
-}

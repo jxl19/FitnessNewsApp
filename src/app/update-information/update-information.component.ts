@@ -29,7 +29,7 @@ export class UpdateInformationComponent implements OnInit {
   }
 
   handleSubmit(e:any) {
-    // console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName});
+    console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName});
     
   }
 

@@ -26,6 +26,10 @@ export class NavbarComponent implements OnInit {
   }
 
   handleUpdateInfo() {
-    this.router.navigate(['/updateinfo'])
+    this.router.navigate(['/updateinfo']);
+  }
+
+  goToPrevNews() {
+    this.router.navigate(['/previousnewsletters']);
   }
 }
