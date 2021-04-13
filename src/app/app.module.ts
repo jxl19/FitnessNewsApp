@@ -14,6 +14,8 @@ import { CreateNewsletterComponent } from './create-newsletter/create-newsletter
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { UpdateInformationComponent } from './update-information/update-information.component';
 import { PreviousNewsletterComponent } from './previous-newsletter/previous-newsletter.component';
+import { UpdateNewsletterComponent } from './update-newsletter/update-newsletter.component';
+import { UpdateFormComponent } from './update-form/update-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { PreviousNewsletterComponent } from './previous-newsletter/previous-news
     RegisterPageComponent,
     UpdateInformationComponent,
     PreviousNewsletterComponent,
+    UpdateNewsletterComponent,
+    UpdateFormComponent,
   ],
   imports: [
     BrowserModule,
