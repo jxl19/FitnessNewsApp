@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsletterServiceService } from '../services/newsletter-service.service';
-import { Newsletters } from '../models/newsletters';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -21,7 +20,7 @@ newState:any;
   creationDate:string="";
 
   handleSubmit(e:any) {
-    console.log({header: this.header, content:this.content, fn: this.authFirstName, ln: this.authLastName});
+    console.log({header: this.header, content:this.content, fn: this.authFirstName, ln: this.authLastName, cd:this.creationDate});
     
   }
   

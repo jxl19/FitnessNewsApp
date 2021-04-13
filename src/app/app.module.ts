@@ -16,6 +16,7 @@ import { UpdateInformationComponent } from './update-information/update-informat
 import { PreviousNewsletterComponent } from './previous-newsletter/previous-newsletter.component';
 import { UpdateNewsletterComponent } from './update-newsletter/update-newsletter.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
+import { PreviousFormComponent } from './previous-form/previous-form.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UpdateFormComponent } from './update-form/update-form.component';
     PreviousNewsletterComponent,
     UpdateNewsletterComponent,
     UpdateFormComponent,
+    PreviousFormComponent,
   ],
   imports: [
     BrowserModule,
