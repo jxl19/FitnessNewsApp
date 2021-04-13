@@ -8,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NewsletterComponent } from './newsletter/newsletter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateNewsletterComponent } from './create-newsletter/create-newsletter.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
@@ -17,6 +16,8 @@ import { PreviousNewsletterComponent } from './previous-newsletter/previous-news
 import { UpdateNewsletterComponent } from './update-newsletter/update-newsletter.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { PreviousFormComponent } from './previous-form/previous-form.component';
+import { CommonModule } from '@angular/common';
+import { NewsletterComponent } from './newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PreviousFormComponent } from './previous-form/previous-form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

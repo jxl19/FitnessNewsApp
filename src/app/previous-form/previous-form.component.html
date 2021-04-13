@@ -1,10 +1,11 @@
+<app-navbar></app-navbar>
 <div id="newsletter" class="card text-center">
     <div id="n-header" class="card-header">
       {{newState.header}}
     </div>
     <div id="n-body" class="card-body">
-        <span class="card-text"><small class="text-muted">{{newState.firstname}} {{newState.lastname}}</small></span>
-        <p class="card-text"><small class="text-muted">{{newState.date}}</small></p>
+        <span class="card-text"><small class="text-muted">{{newState.authfirstname}} {{newState.authlastname}}</small></span>
+        <p class="card-text"><small class="text-muted">{{newState.datepublished}}</small></p>
       <p class="card-text">
         {{newState.content}}
       </p>
