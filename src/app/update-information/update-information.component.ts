@@ -18,7 +18,7 @@ export class UpdateInformationComponent implements OnInit {
   firstName:string="";
   lastName:string="";
   confirmPassword:string="";
-
+  subChecked:any = false;
   ngOnDestroy(): void {
     document.body.classList.remove('landing');
   }
@@ -28,10 +28,12 @@ export class UpdateInformationComponent implements OnInit {
   }
 
   handleSubmit(e:any) {
-    console.log({password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName});
-    
+    console.log({password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName, wantsMail: this.subChecked});
   }
 
+  handleClick() {
+    this.subChecked = !this.subChecked;
+  }
 
   handlePassword(password:string) {
     this.password = password;

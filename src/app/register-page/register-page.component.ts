@@ -16,6 +16,7 @@ export class RegisterPageComponent implements OnInit {
   firstName:string="";
   lastName:string="";
   confirmPassword:string="";
+  subChecked:any = false;
 
   ngOnInit(): void {
     document.body.classList.add('landing');
@@ -29,9 +30,11 @@ export class RegisterPageComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  handleSubmit(e:any) {
-    // console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName});
-    
+  handleSubmit() {
+    console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName, wantsMail: this.subChecked});
+  }
+  handleClick() {
+    this.subChecked = !this.subChecked;
   }
 
   handleEmail(email:string) {

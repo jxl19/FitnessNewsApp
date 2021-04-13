@@ -23,7 +23,19 @@
                   <div class="form-group">
                     <input type="password" name="confirm-password" class="form-control" id="register-input" placeholder="Confirm Password" [(ngModel)]="confirmPassword" (ngModelChange)="handleConfirmPassword($event)" required>
                   </div>
-                <button id="register-button" (click)="handleSubmit($event)">Register</button>
+                  <div>
+                    <button id="sub-button" type="button" (click)="handleClick()">
+                      <svg *ngIf="subChecked; else checkBlock" width="50px" height="50px" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+                      <ng-template #checkBlock>
+                        <svg class="checkmark" width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                          <path class="checkmark__check" fill="none" d="M16 16 36 36 M36 16 16 36" />
+                        </svg>
+                      </ng-template>
+                      </button>
+                      Subscribe to Newsletter
+                  </div>
+                <button id="register-button" (click)="handleSubmit()">Register</button>
                 <div>{{invalid}}</div>
               </form>
             </div>
