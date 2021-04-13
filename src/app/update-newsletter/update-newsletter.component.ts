@@ -24,7 +24,7 @@ export class UpdateNewsletterComponent implements OnInit {
   }
   goToNewsletter(id:any) {
     this.newsletterService.getNewsletterById(id).subscribe(data => {
-      this.router.navigate(['/updateform/'+id], {state: data});
+      this.router.navigate(['/updatenewsletter/'+id], {state: data});
     })
   }
 }

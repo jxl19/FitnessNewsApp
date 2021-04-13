@@ -20,7 +20,7 @@ export class PreviousNewsletterComponent implements OnInit {
   }
   goToNewsletter(id:any) {
     this.newsletterService.getNewsletterById(id).subscribe(data => {
-      this.router.navigate(['/createnewsletter'], {state: data});
+      this.router.navigate(['/previousnewsletters/'+id], {state: data});
     })
   }
 }
