@@ -15,6 +15,8 @@ export class UpdateNewsletterComponent implements OnInit {
   
   newsletters: Newsletters | any;
   newsletter: Newsletters | any;
+
+ 
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe(data => {
       this.newsletters = data;
@@ -22,7 +24,7 @@ export class UpdateNewsletterComponent implements OnInit {
   }
   goToNewsletter(id:any) {
     this.newsletterService.getNewsletterById(id).subscribe(data => {
-      this.router.navigate(['/updateform'], {state: data});
+      this.router.navigate(['/updateform/'+id], {state: data});
     })
   }
 }
