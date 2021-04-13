@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div id="newsletter" class="card text-center">
+    <div id="n-header" class="card-header">
+      <input id="news-header" [value]="newState.header" [(ngModel)]="newState.header" name="newsletterheader">
+    </div>
+    <div id="n-body" class="card-body">
+        <textarea id="news-content" cols="30" rows="10" [value]="newState.content" [(ngModel)]="newState.content"></textarea>
+    </div>
+    <div class="card-footer text-muted">
+        <input id="news-footer" [value]="newState.footer" [(ngModel)]="newState.footer" name="newsletterfooter">
+    </div>
+<div id="button-container">
+    <div id="update-newsletter">Update Newsletter</div>
+</div>
