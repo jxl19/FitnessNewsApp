@@ -10,6 +10,8 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let x = window.history.state;
+    console.log(x.userType);
   }
 
 }

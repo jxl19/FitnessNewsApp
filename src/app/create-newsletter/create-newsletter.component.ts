@@ -10,6 +10,8 @@ export class CreateNewsletterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let state = window.history.state;
+    console.log("state", state);
   }
 
 }

@@ -5,5 +5,6 @@ export interface Newsletters {
     authlastname: string,
     header: string,
     content: string,
-    footer: string
+    footer: string,
+    length:number
 }

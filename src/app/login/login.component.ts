@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     this.loginService.loginUser(this.email).subscribe(data => {
       if(data.id === this.email && data.password === this.password){
-        this.router.navigate(['/homepage'])
+          localStorage.setItem('userType', data.superUser.toString());
+          this.router.navigate(['/homepage']);
       }
       this.invalid = "Invalid Username or Password";
       console.log(data);
