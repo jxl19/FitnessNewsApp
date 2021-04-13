@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'updateinfo', component:UpdateInformationComponent},
   {path:'previousnewsletters', component:PreviousNewsletterComponent},
   {path:'updatenewsletter', component:UpdateNewsletterComponent},
-  {path:'updateform', component:UpdateFormComponent}
+  {path:'updateform/:id', component:UpdateFormComponent}
 ];
 
 @NgModule({

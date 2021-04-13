@@ -22,7 +22,7 @@ export class NewsletterServiceService {
       catchError(this.errorHandler)
     )
   }
-  getNewsletterById(id:number): Observable<Newsletters> {
+  getNewsletterById(id:any): Observable<Newsletters> {
     return this.http.get<Newsletters>(this.baseUrl + id)
     .pipe(
       retry(1),
