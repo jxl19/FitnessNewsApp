@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  admin:boolean=false;
   ngOnInit(): void {
+    this.admin = localStorage.getItem('userType') == "true" ? true : false;
   }
 
   handleLogout() {
+    localStorage.removeItem('userType');
     this.router.navigate(['/login']);
   }
 
