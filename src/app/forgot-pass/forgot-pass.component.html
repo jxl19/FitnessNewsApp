@@ -1,0 +1,23 @@
+<div id="login-container">
+  <div id="login-head">
+    <div id="head-container"(click)="goToLanding()">
+      <div>FitnessNews</div>
+    </div>
+  </div>
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Forgot Password</h5>
+        <form #form='ngForm' ngNativeValidate >
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" 
+            id="exampleInputEmail1" aria-describedby="emailHelp" 
+            placeholder="Enter email"[(ngModel)]="email" 
+            (ngModelChange)="handleEmail($event)" required>
+          </div>
+
+          <button id="login-button" (click)="handleSubmit($event)">Submit</button>
+          
+        </form>
+      </div>
+    </div>
+</div>

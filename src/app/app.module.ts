@@ -19,6 +19,7 @@ import { PreviousFormComponent } from './previous-form/previous-form.component';
 import { CommonModule } from '@angular/common';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     UpdateNewsletterComponent,
     UpdateFormComponent,
     PreviousFormComponent,
+    ForgotPassComponent,
     NotfoundComponent,
   ],
   imports: [
