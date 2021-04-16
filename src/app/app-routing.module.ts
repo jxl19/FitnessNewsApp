@@ -4,6 +4,7 @@ import { CreateNewsletterComponent } from './create-newsletter/create-newsletter
 import { HomePageComponent } from './home-page/home-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { PreviousFormComponent } from './previous-form/previous-form.component';
 import { PreviousNewsletterComponent } from './previous-newsletter/previous-newsletter.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:'previousnewsletters', component:PreviousNewsletterComponent},
   {path:'updatenewsletter', component:UpdateNewsletterComponent},
   {path:'updatenewsletter/:id', component:UpdateFormComponent},
-  {path:'previousnewsletters/:id', component:PreviousFormComponent}
+  {path:'previousnewsletters/:id', component:PreviousFormComponent},
+  {path:'pageNotFound', component: NotfoundComponent},
+  {path:'**', redirectTo: '/pageNotFound'}
 ];
 
 @NgModule({

@@ -19,8 +19,9 @@ newState:any;
   authFirstName:string="";
   creationDate:string="";
 
-  handleSubmit(e:any) {
-    console.log({header: this.header, content:this.content, fn: this.authFirstName, ln: this.authLastName, cd:this.creationDate});
+  handleSubmit() {
+    console.log({header: this.newState.header, content: this.newState.content, footer: this.newState.footer});
+    // console.log({header: this.header, content:this.content, fn: this.authFirstName, ln: this.authLastName, cd:this.creationDate});
     
   }
   
@@ -32,7 +33,7 @@ newState:any;
       this.route.paramMap.subscribe(params => {
         this.newState = params.get("id");
           this.id = params.get("id");
-                this.newsletterService.getNewsletterById(this.id).subscribe(data=>{
+          this.newsletterService.getNewsletterById(this.id).subscribe(data=>{
           this.newState=data;
         })
       })
