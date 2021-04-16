@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateNewsletterComponent } from './create-newsletter/create-newsletter.component';
+import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'updatenewsletter', component:UpdateNewsletterComponent},
   {path:'updatenewsletter/:id', component:UpdateFormComponent},
   {path:'previousnewsletters/:id', component:PreviousFormComponent},
+  {path:'forgotpass', component:ForgotPassComponent},
   {path:'pageNotFound', component: NotfoundComponent},
   {path:'**', redirectTo: '/pageNotFound'}
 ];
