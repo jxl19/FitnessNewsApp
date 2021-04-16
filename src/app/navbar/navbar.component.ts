@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { }
   admin:boolean=false;
+  isCollapsed:boolean = false;
   ngOnInit(): void {
     this.admin = localStorage.getItem('userType') == "true" ? true : false;
   }
