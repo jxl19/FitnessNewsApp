@@ -50,4 +50,8 @@ export class LoginComponent implements OnInit {
   requestPassword() {
     console.log("req pass");
   }
+
+  forgotPassPage() {
+    this.router.navigate(['/forgotpass']);
+  }
 }

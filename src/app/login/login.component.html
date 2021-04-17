@@ -15,7 +15,7 @@
             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" (ngModelChange)="handlePassword($event)" required>
           </div>
           <button id="login-button" (click)="handleSubmit($event)">Submit</button>
-          <p id="req-pass"><small class="text-muted">Forgot Password</small></p>
+          <p id="req-pass"><small class="text-muted" (click)="forgotPassPage()">Forgot Password</small></p>
           <div id="invalid-pass">{{invalid}}</div>
         </form>
       </div>
