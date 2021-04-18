@@ -8,7 +8,7 @@ import { Login } from '../models/login';
   providedIn: 'root'
 })
 export class LoginServiceService {
-  baseUrl = 'http://localhost:3000/users/'
+  baseUrl = 'http://localhost:9095/api/users/'
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({

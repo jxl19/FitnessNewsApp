@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   handleSubmit(e:any) {
     e.preventDefault();
     this.loginService.loginUser(this.email).subscribe(data => {
-      if(data.id === this.email && data.password === this.password){
+      if(data.email === this.email && data.password === this.password){
           localStorage.setItem('userType', data.superUser.toString());
           this.router.navigate(['/homepage']);
       }
