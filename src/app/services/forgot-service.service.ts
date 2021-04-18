@@ -9,7 +9,7 @@ import { ReturnStatement } from '@angular/compiler';
   providedIn: 'root'
 })
 export class ForgotServiceService {
-  baseUrl= 'http://localhost:3000/users/';
+  baseUrl= 'http://localhost:9095/reset/forgotpass';
   email:String = "";
   constructor(private http:HttpClient){
 
@@ -20,12 +20,14 @@ export class ForgotServiceService {
     })
   }
 
+
+
 accessSpecificEmail(email:String) : Observable<Login>{
-  return this.http.get<Login>(this.baseUrl + email)
-  .pipe(
-    retry(1),
-    catchError(this.errorHandler)
-  )
+  return this.http.post<Login>(this.baseUrl, email, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
 
   }
   //access our list of emails and look for a specific one
