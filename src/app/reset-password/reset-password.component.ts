@@ -13,6 +13,8 @@ export class ResetPasswordComponent implements OnInit {
   
   password:string = "";
   token:any;
+  status:string = "";
+  response:string = "";
 
   constructor(private resetservice:ResetServiceService, private router:Router, private route:ActivatedRoute) { }
 
@@ -27,7 +29,10 @@ handleSubmit(e:any) {
     let passwordtoken= {"token": token.token, "password": this.password};
     this.resetservice.postPasswordByToken(JSON.stringify(passwordtoken)).subscribe(data => {
       console.log(data)
+      this.status = data.status
+      this.response = data.response
     })
+    
   }
 
   goToLanding() {

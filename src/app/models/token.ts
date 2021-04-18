@@ -1,5 +1,7 @@
 export interface Token{
 
-    token:String;
+    token:string,
+    status:string,
+    response:string
 
 }
