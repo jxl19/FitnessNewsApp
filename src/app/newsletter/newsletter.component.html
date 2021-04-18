@@ -1,4 +1,4 @@
-<div id="newsletter" class="card text-center">
+<div id="newsletter" class="card text-center" #content>
     <div id="n-header" class="card-header">
       {{newsletter.header}}
     </div>
@@ -8,10 +8,12 @@
       
         <p class="card-text"><span style="white-space: pre-line">{{newsletter.content}}</span></p>
       
-      <a id="download" class="btn">Download</a>
+      </div>
+      <div class="card-footer text-muted">
+        {{newsletter.footer}}
+      </div>
     </div>
-    <div class="card-footer text-muted">
-      {{newsletter.footer}}
+    <div>
+      <div id="download" class="btn" (click)="downloadPDF()">Download</div>
+      <div id="download" class="btn" (click)="uploadPDF()">Upload</div>
     </div>
-
-  </div>
