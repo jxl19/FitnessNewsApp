@@ -9,6 +9,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { PreviousFormComponent } from './previous-form/previous-form.component';
 import { PreviousNewsletterComponent } from './previous-newsletter/previous-newsletter.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { UpdateInformationComponent } from './update-information/update-information.component';
 import { UpdateNewsletterComponent } from './update-newsletter/update-newsletter.component';
@@ -26,6 +27,8 @@ const routes: Routes = [
   {path:'previousnewsletters/:id', component:PreviousFormComponent},
   {path:'forgotpass', component:ForgotPassComponent},
   {path:'pageNotFound', component: NotfoundComponent},
+  {path:'resetpass', pathMatch: 'full', component:ResetPasswordComponent},
+  {path:'resetpass/:token', component:ResetPasswordComponent},
   {path:'**', redirectTo: '/pageNotFound'}
 ];
 

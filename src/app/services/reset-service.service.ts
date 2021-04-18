@@ -2,34 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Login } from '../models/login';
+import { Newsletters } from '../models/newsletters';
+import { Token } from '../models/token';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginServiceService {
-  baseUrl = 'http://localhost:9095/api/users/'
+export class ResetServiceService {
+  baseUrl= 'http://localhost:9095/reset/resetpass/';
+  
+
   constructor(private http: HttpClient) { }
-  httpOptions = {
+  httpOptions ={
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
-  getUsers(): Observable<Login> {
-    return this.http.get<Login>(this.baseUrl)
+
+  postPasswordByToken(passwordtoken: Object): Observable<Token> {
+    return this.http.post<Token>(this.baseUrl, passwordtoken, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
     )
   }
-  loginUser(ids:any): Observable<Login> {
-    return this.http.get<Login>(this.baseUrl + ids)
-    .pipe(
-      retry(1),
-      catchError(this.errorHandler)
-    )
-  }
-  // Error handling
+
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
@@ -42,6 +39,4 @@ export class LoginServiceService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
-  
 }
-

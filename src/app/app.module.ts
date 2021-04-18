@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
     PreviousFormComponent,
     ForgotPassComponent,
     NotfoundComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
