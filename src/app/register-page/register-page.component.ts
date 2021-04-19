@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginServiceService } from '../services/login-service.service';
+import { PersonalInfoServiceService } from '../services/personal-info-service.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-register-page',
@@ -8,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterPageComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private personalInfoService : PersonalInfoServiceService, private userService: UserServiceService, private loginService : LoginServiceService) { }
   
   email:string="";
   password:string="";
@@ -17,6 +20,7 @@ export class RegisterPageComponent implements OnInit {
   lastName:string="";
   confirmPassword:string="";
   subChecked:any = false;
+  userId: any;
 
   ngOnInit(): void {
     document.body.classList.add('landing');
@@ -30,9 +34,27 @@ export class RegisterPageComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+   handleResgisterUser() {
+    const user = {"email" : this.email, "password" : this.password, "superUser" : false}
+    this.userService.registerUser(JSON.stringify(user)).subscribe(data => {
+      const userCreated = {"userID" : data.userID, "lName" : this.lastName, "fName" : this.firstName, "wantsMail" : this.subChecked};
+    this.personalInfoService.createUser(JSON.stringify(userCreated)).subscribe(data=> {
+      localStorage.setItem('firstName', this.firstName);
+      localStorage.setItem('lastName', this.lastName);
+      localStorage.setItem('id', data.userID);
+      localStorage.setItem('userType', "false");
+      localStorage.setItem('wantsMail', this.subChecked.toString());
+      this.router.navigate(['/homepage']);
+      // console.log(localStorage.getItem('firstName'), localStorage.getItem('lastName'), localStorage.getItem('id'), localStorage.getItem('userType'), localStorage.getItem('wantsMail'));
+    })
+    })
+  }
+
   handleSubmit() {
     console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName, wantsMail: this.subChecked});
+    this.handleResgisterUser();
   }
+
   handleClick() {
     this.subChecked = !this.subChecked;
   }

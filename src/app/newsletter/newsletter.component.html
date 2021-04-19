@@ -1,17 +1,16 @@
-<div id="newsletter" class="card text-center">
-    <div id="n-header" class="card-header">
-      {{newsletter.header}}
-    </div>
-    <div id="n-body" class="card-body">
-        <span class="card-text"><small class="text-muted">{{newsletter.authfirstname}} {{newsletter.authlastname}}</small></span>
-        <p class="card-text"><small class="text-muted">{{newsletter.datepublished}}</small></p>
-      
-        <p class="card-text"><span style="white-space: pre-line">{{newsletter.content}}</span></p>
-      
-      <a id="download" class="btn">Download</a>
-    </div>
-    <div class="card-footer text-muted">
-      {{newsletter.footer}}
-    </div>
-
+<div id="newsletter" class="card text-center" #content>
+  <div id="n-header" class="card-header">
+    {{newsletter.header}}
   </div>
+  <div id="n-body" class="card-body">
+    <span class="card-text"><small class="text-muted">{{newsletter.authFirstName}} {{newsletter.authLastName}}</small></span>
+    <p class="card-text"><small class="text-muted">{{newsletter.datePublished | date}}</small></p>
+    <p id="n-content" class="card-text"><span style="white-space: pre-line">{{newsletter.content}}</span></p>
+  </div>
+  <div class="card-footer text-muted">
+    {{newsletter.footer}}
+  </div>
+</div>
+<div id="d-container">
+  <div id="download" class="btn" (click)="downloadPDF()">Download</div>
+</div>

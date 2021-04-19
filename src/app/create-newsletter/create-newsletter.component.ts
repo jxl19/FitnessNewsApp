@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NewsletterServiceService } from '../services/newsletter-service.service';
 
 @Component({
   selector: 'app-create-newsletter',
@@ -7,11 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateNewsletterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newsletterService : NewsletterServiceService, private router : Router) { }
 
+  newsletterState = {
+    header : "",
+    content: "",
+    footer: "",
+    datePublished: "",
+    authFirstName: localStorage.getItem('firstName'),
+    authLastName: localStorage.getItem('lastName')
+  }
+//we can send some kind of token on navigate, then remove that token after and only then it will upload to s3 if token exist
   ngOnInit(): void {
-    let state = window.history.state;
-    console.log("state", state);
   }
 
+  createNewsLetter() {
+    console.log(this.newsletterState)
+    this.newsletterState.datePublished = new Date().toISOString().split('T')[0];
+    localStorage.setItem('upload', 'true');
+    this.newsletterService.createNewsletter(this.newsletterState).subscribe(res => {
+      setTimeout(() => {
+        this.router.navigate(['/homepage']);
+      }, 1000);
+    })
+  }
 }

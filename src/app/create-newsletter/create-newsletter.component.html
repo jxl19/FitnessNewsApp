@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div id="newsletter" class="card text-center">
     <div id="n-header" class="card-header">
-      <input id="news-header"type="text" placeholder="Header">
+      <input id="news-header"type="text" placeholder="Header" [value]="newsletterState.header" [(ngModel)]="newsletterState.header" name="newsletterheader">
     </div>
     <div id="n-body" class="card-body">
-        <textarea id="news-content" cols="30" rows="10" placeholder="Content"></textarea>
+        <textarea id="news-content" cols="30" rows="10" placeholder="Content" [value]="newsletterState.content" [(ngModel)]="newsletterState.content"></textarea>
     </div>
     <div class="card-footer text-muted">
-        <input id="news-footer" type="text" placeholder="Footer">
+        <input id="news-footer" type="text" placeholder="Footer" [value]="newsletterState.footer" [(ngModel)]="newsletterState.footer" name="newsletterfooter">
     </div>
 </div>
 <div id="button-container">
-    <div id="upload-newsletter">Create Newsletter</div>
+    <div id="upload-newsletter" (click)="createNewsLetter()">Create Newsletter</div>
 </div>

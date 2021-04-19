@@ -19,6 +19,7 @@ export class UpdateNewsletterComponent implements OnInit {
  
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe(data => {
+      console.log(data)
       this.newsletters = data;
     })
   }
