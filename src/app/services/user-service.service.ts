@@ -22,6 +22,14 @@ export class UserServiceService {
       catchError(this.errorHandler)
     )
   }
+
+  updatepassword(id:any, pass:any): Observable<any> {
+    return this.http.put<any>(this.baseUrl + 'updatepassword/' + id, pass, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

@@ -23,6 +23,14 @@ export class PersonalInfoServiceService {
       catchError(this.errorHandler)
     )
   }
+
+  updateUser(id:any, userInfo:any): Observable<any> {
+    return this.http.put<any>(this.baseUrl + 'update/' + id, userInfo, this.httpOptions)
+    .pipe (
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

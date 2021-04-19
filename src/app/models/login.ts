@@ -4,5 +4,6 @@ export interface Login {
     superUser:boolean,
     userID:number,
     status:string,
-    response:string
+    response:string,
+    personalInfo:any
 }

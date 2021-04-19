@@ -73,14 +73,9 @@ export class NewsletterComponent implements OnInit {
       const formData = new FormData();
       var out = pdf.output('blob');
       formData.append("uploadFile", out, 'somename.pdf');
-      // this.uploadService.uploadPDF(formData).subscribe(data => {
-      //   console.log(data)
-      // });
-      console.log('fornd', formData);
       this.http.post('http://localhost:8080/fileupload/file/', formData).subscribe(res => {
         console.log(res);
       })
-      console.log('done');
     }))
   }
 }
