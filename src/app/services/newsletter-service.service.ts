@@ -8,7 +8,7 @@ import { Newsletters } from '../models/newsletters';
   providedIn: 'root'
 })
 export class NewsletterServiceService {
-  baseUrl= 'http://localhost:3000/newsletters/';
+  baseUrl= 'http://localhost:9095/newsletters/';
   constructor(private http: HttpClient) { }
   httpOptions ={
     headers: new HttpHeaders({
@@ -16,14 +16,29 @@ export class NewsletterServiceService {
     })
   }
   getNewsletters(): Observable<Newsletters> {
-    return this.http.get<Newsletters>(this.baseUrl)
+    return this.http.get<Newsletters>(this.baseUrl + "allnews")
     .pipe(
       retry(1),
       catchError(this.errorHandler)
     )
   }
   getNewsletterById(id:any): Observable<Newsletters> {
-    return this.http.get<Newsletters>(this.baseUrl + id)
+    return this.http.get<Newsletters>(this.baseUrl + "get/" + id)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+  createNewsletter(newsletter:Object): Observable<Newsletters>{
+    return this.http.post<Newsletters>(this.baseUrl + "createnews", newsletter, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+
+  updateNewsletter(id:any, newsletter:Object): Observable<Newsletters>{
+    return this.http.put<Newsletters>(this.baseUrl + "updatenews/" + id, newsletter, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)

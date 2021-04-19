@@ -19,9 +19,14 @@ newState:any;
   authFirstName:string="";
   creationDate:string="";
 
-  handleSubmit() {
+  handleSubmit(e:any) {
+    e.preventDefault();
+    let newsletter = {"creationDate":this.creationDate, "header":this.header, "content":this.content,
+    "authFirstName":this.authFirstName, "authLastName":this.authLastName, "footer":this.footer}
     console.log({header: this.newState.header, content: this.newState.content, footer: this.newState.footer});
-    // console.log({header: this.header, content:this.content, fn: this.authFirstName, ln: this.authLastName, cd:this.creationDate});
+    this.newsletterService.updateNewsletter(this.id, JSON.stringify(newsletter)).subscribe(data=>{
+      console.log(data)
+    })
     
   }
   

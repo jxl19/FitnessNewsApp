@@ -27,9 +27,11 @@ export class LoginComponent implements OnInit {
   handleSubmit(e:any) {
     e.preventDefault();
     this.loginService.loginUser(this.email).subscribe(data => {
-      if(data.id === this.email && data.password === this.password){
-          localStorage.setItem('userType', data.superUser.toString());
-          this.router.navigate(['/homepage']);
+      if(data.email === this.email && data.password === this.password){
+        localStorage.setItem('authFirst', data.personalInfo.fName);
+        localStorage.setItem('authLast', data.personalInfo.lName);
+        localStorage.setItem('userType', data.superUser.toString()); 
+        this.router.navigate(['/homepage']);
       }
       this.invalid = "Invalid Username or Password";
     },
@@ -49,5 +51,9 @@ export class LoginComponent implements OnInit {
   }
   requestPassword() {
     console.log("req pass");
+  }
+
+  forgotPassPage() {
+    this.router.navigate(['/forgotpass']);
   }
 }

@@ -1,6 +1,7 @@
 export interface Login {
-    id:string,
+    email:string,
     password:string,
     superUser:boolean,
-    userID:number
+    userID:number,
+    personalInfo:any
 }
