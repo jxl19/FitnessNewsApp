@@ -37,6 +37,13 @@ export class NewsletterServiceService {
       catchError(this.errorHandler)
     )
   }
+  updateNewsletter(id:any, newsletter:Object): Observable<Newsletters>{
+    return this.http.put<Newsletters>(this.baseUrl + "updatenews/" + id, newsletter, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
     // Error handling
     errorHandler(error:any) {
       let errorMessage = '';
