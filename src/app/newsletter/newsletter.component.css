@@ -1,7 +1,7 @@
 #newsletter{ 
     top: 5vh;
     width: 80%;
-    height: 80vh;
+    height: 75vh;
     margin: auto;
     overflow-y: auto;
     border: none;
@@ -38,9 +38,16 @@
     border: 1px solid white;
     border-radius: 0;
     cursor: pointer;
+    color:white;
+    background-color: #16161d;
 }
 
 #download:hover{
     background-color: #4c4c4c6b;
+}
+
+#d-container{ 
+    margin-top: 7vh;
+    text-align: center;
 }
 

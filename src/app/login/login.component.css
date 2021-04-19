@@ -55,4 +55,9 @@
 }
 #req-pass{
     margin-bottom: 0;
+    cursor: pointer;
+}
+#req-pass:hover{
+    text-decoration: underline;
+    text-decoration-color: #f5f5f5;
 }

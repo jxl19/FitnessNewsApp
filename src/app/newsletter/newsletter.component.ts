@@ -1,3 +1,4 @@
+
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { jsPDF }  from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -47,7 +48,7 @@ export class NewsletterComponent implements OnInit {
     console.log("downloading..");
     const doc = new jsPDF();
     let data:any = document.getElementById('newsletter');
-    html2canvas(data).then((canvas => {
+    html2canvas(data).then(((canvas: { toDataURL: (arg0: string, arg1: number) => any; }) => {
       let width = 250;
       let fileHeight =  250;
       const fileUri = canvas.toDataURL('image/png', 0.1 );

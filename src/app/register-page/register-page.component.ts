@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PersonalInfoServiceService } from '../services/personal-info-service.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-register-page',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterPageComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private personalInfoService : PersonalInfoServiceService, private userService: UserServiceService) { }
   
   email:string="";
   password:string="";
@@ -17,6 +19,7 @@ export class RegisterPageComponent implements OnInit {
   lastName:string="";
   confirmPassword:string="";
   subChecked:any = false;
+  userId: any;
 
   ngOnInit(): void {
     document.body.classList.add('landing');
@@ -30,9 +33,22 @@ export class RegisterPageComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+   handleResgisterUser() {
+    const user = {"email" : this.email, "password" : this.password, "superUser" : false}
+    this.userService.registerUser(JSON.stringify(user)).subscribe(data => {
+      const userCreated = {"userID" : data.userID, "lName" : this.lastName, "fName" : this.firstName, "wantsMail" : this.subChecked};
+    this.personalInfoService.createUser(JSON.stringify(userCreated)).subscribe(data=> {
+      console.log("inside create user", data);
+      //login user here
+    })
+    })
+  }
+
   handleSubmit() {
     console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName, wantsMail: this.subChecked});
+    this.handleResgisterUser();
   }
+
   handleClick() {
     this.subChecked = !this.subChecked;
   }
