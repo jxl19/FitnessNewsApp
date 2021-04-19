@@ -15,8 +15,13 @@ export class ForgotPassComponent implements OnInit {
   response:string = "";
 
   ngOnInit(): void {
+    document.body.classList.add('landing');
   }
 
+  ngOnDestroy(): void {
+    document.body.classList.remove('landing');
+  }
+  
   handleEmail(email:string){
       this.email = email;
   }
