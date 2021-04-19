@@ -20,7 +20,7 @@ export class PreviousFormComponent implements OnInit {
       this.route.paramMap.subscribe(params => {
         this.newState = params.get("id");
           this.id = params.get("id");
-                this.newsletterService.getNewsletterById(this.id).subscribe(data=>{
+          this.newsletterService.getNewsletterById(this.id).subscribe(data=>{
           this.newState=data;
         })
       })

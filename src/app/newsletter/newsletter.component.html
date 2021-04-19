@@ -3,8 +3,8 @@
     {{newsletter.header}}
   </div>
   <div id="n-body" class="card-body">
-    <span class="card-text"><small class="text-muted">{{newsletter.authfirstname}} {{newsletter.authlastname}}</small></span>
-    <p class="card-text"><small class="text-muted">{{newsletter.datepublished}}</small></p>
+    <span class="card-text"><small class="text-muted">{{newsletter.authFirstName}} {{newsletter.authLastName}}</small></span>
+    <p class="card-text"><small class="text-muted">{{newsletter.datePublished | date}}</small></p>
     <p id="n-content" class="card-text"><span style="white-space: pre-line">{{newsletter.content}}</span></p>
   </div>
   <div class="card-footer text-muted">

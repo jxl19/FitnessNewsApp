@@ -8,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
 
   constructor() { }
-
+  upload:any="";
   ngOnInit(): void {
-    let x = window.history.state;
-    console.log(x.userType);
+   
   }
 
 }

@@ -17,19 +17,24 @@ export class NewsletterComponent implements OnInit {
   constructor(private newsletterService: NewsletterServiceService, private uploadService : UploadServiceService, private http: HttpClient) {}
 
   @ViewChild('newsletter') htmlData:ElementRef | any;
-  newsletter: Newsletters | any;
+  newsletter: Newsletters | any = "";
   mostRecentId: number = 0;
   prevId: number = 0;
-
+  upload:any="";
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe((data) => {
-      this.mostRecentId = data.length - 1;
+      console.log("data", data, "leng", data.length);
+      console.log(data[data.length - 1].newsLetterID);
+      this.newsletter = data[data.length - 1];
+      setTimeout(() => {
+        this.upload = localStorage.getItem('upload');
+        if(this.upload) {
+          this.uploadPDF();
+          localStorage.removeItem('upload');
+        } else console.log("not uploading");
+      }, 1000);
     });
-    this.newsletterService
-      .getNewsletterById(this.mostRecentId)
-      .subscribe((data) => {
-        this.newsletter = data;
-      });
+  
   }
 
   ngAfterContentChecked(): void {
@@ -43,7 +48,11 @@ export class NewsletterComponent implements OnInit {
         });
     }
   }
-  
+
+  ngAfterViewChecked(): void {
+
+  }
+
   downloadPDF() {
     console.log("downloading..");
     const doc = new jsPDF();

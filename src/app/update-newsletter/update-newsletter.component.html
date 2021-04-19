@@ -8,10 +8,10 @@
       </tr>
     </thead>
     <tbody *ngFor = "let news of newsletters">
-      <tr id="news-row" (click)="goToNewsletter(news.id)">
-        <td>{{news.datepublished}}</td>
+      <tr id="news-row" (click)="goToNewsletter(news.newsletterID)">
+        <td>{{news.datePublished | date}}</td>
         <td>{{news.header}}</td>
-        <td>{{news.authfirstname}} {{news.authlastname}}</td>
+        <td>{{news.authFirstName}} {{news.authLastName}}</td>
       </tr>
     </tbody>
   </table>
