@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../services/login-service.service';
 import { PersonalInfoServiceService } from '../services/personal-info-service.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.css']
+  styleUrls: ['./register-page.component.css'],
 })
 export class RegisterPageComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private personalInfoService: PersonalInfoServiceService,
+    private userService: UserServiceService,
+  ) {}
 
-  constructor(private router : Router, private personalInfoService : PersonalInfoServiceService, private userService: UserServiceService, private loginService : LoginServiceService) { }
-  
-  email:string="";
-  password:string="";
-  invalid:string="";
-  firstName:string="";
-  lastName:string="";
-  confirmPassword:string="";
-  subChecked:any = false;
+  email: string = '';
+  password: string = '';
+  invalid: string = '';
+  firstName: string = '';
+  lastName: string = '';
+  confirmPassword: string = '';
+  subChecked: any = false;
   userId: any;
 
   ngOnInit(): void {
@@ -34,49 +36,75 @@ export class RegisterPageComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-   handleResgisterUser() {
-    const user = {"email" : this.email, "password" : this.password, "superUser" : false}
-    this.userService.registerUser(JSON.stringify(user)).subscribe(data => {
-      const userCreated = {"userID" : data.userID, "lName" : this.lastName, "fName" : this.firstName, "wantsMail" : this.subChecked};
-    this.personalInfoService.createUser(JSON.stringify(userCreated)).subscribe(data=> {
-      localStorage.setItem('firstName', this.firstName);
-      localStorage.setItem('lastName', this.lastName);
-      localStorage.setItem('id', data.userID);
-      localStorage.setItem('userType', "false");
-      localStorage.setItem('wantsMail', this.subChecked.toString());
-      this.router.navigate(['/homepage']);
-      // console.log(localStorage.getItem('firstName'), localStorage.getItem('lastName'), localStorage.getItem('id'), localStorage.getItem('userType'), localStorage.getItem('wantsMail'));
-    })
-    })
+  validateEmail(email: string) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  handleResgisterUser() {
+    const user = {
+      email: this.email,
+      password: this.password,
+      superUser: false,
+    };
+    this.userService.registerUser(JSON.stringify(user)).subscribe((data) => {
+      const userCreated = {
+        userID: data.userID,
+        lName: this.lastName,
+        fName: this.firstName,
+        wantsMail: this.subChecked,
+      };
+      this.personalInfoService
+        .createUser(JSON.stringify(userCreated))
+        .subscribe((data) => {
+          localStorage.setItem('firstName', this.firstName);
+          localStorage.setItem('lastName', this.lastName);
+          localStorage.setItem('id', data.userID);
+          localStorage.setItem('userType', 'false');
+          localStorage.setItem('wantsMail', this.subChecked.toString());
+          this.router.navigate(['/homepage']);
+        });
+    });
   }
 
   handleSubmit() {
-    console.log({email: this.email, password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName, wantsMail: this.subChecked});
-    this.handleResgisterUser();
+    console.log({
+      email: this.email,
+      password: this.password,
+      confirm: this.confirmPassword,
+      fn: this.firstName,
+      ln: this.lastName,
+      wantsMail: this.subChecked,
+    });
+    let validEmail = this.validateEmail(this.email);
+    if (this.password === this.confirmPassword && validEmail) {
+      this.handleResgisterUser();
+    } else {
+      this.invalid = validEmail ? 'Passwords do not match' : 'Invalid Email';
+    }
   }
 
   handleClick() {
     this.subChecked = !this.subChecked;
   }
 
-  handleEmail(email:string) {
+  handleEmail(email: string) {
     this.email = email;
   }
 
-  handlePassword(password:string) {
+  handlePassword(password: string) {
     this.password = password;
   }
 
-  handleFirstName(firstName:string) {
+  handleFirstName(firstName: string) {
     this.firstName = firstName;
   }
 
-  handleLastName(lastName:string) {
+  handleLastName(lastName: string) {
     this.lastName = lastName;
   }
 
-  handleConfirmPassword(confirmPassword:string){
+  handleConfirmPassword(confirmPassword: string) {
     this.confirmPassword = confirmPassword;
   }
-
 }

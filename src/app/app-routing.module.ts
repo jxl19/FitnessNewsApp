@@ -28,7 +28,7 @@ const routes: Routes = [
   {path:'forgotpass', component:ForgotPassComponent},
   {path:'pageNotFound', component: NotfoundComponent},
   {path:'resetpass', pathMatch: 'full', component:ResetPasswordComponent},
-  {path:'resetpass/:token', component:ResetPasswordComponent},
+  {path:'resetpass?token=:token', component:ResetPasswordComponent},
   {path:'**', redirectTo: '/pageNotFound'}
 ];
 

@@ -1,0 +1,23 @@
+#notfound-container {
+    height: 100vh;
+    background-color: #2f2f3180;
+}
+
+#notfound-head {
+    color: #f5f5f5;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 30px;
+}
+
+#head-container{
+    border: 5px solid black;
+    width: 15%; 
+    text-align: center;
+}
+
+#err-page {
+    color:#f5f5f5;
+    text-align: center;
+}
