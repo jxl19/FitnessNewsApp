@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
 import { NewsletterServiceService } from '../services/newsletter-service.service';
 
 @Component({
