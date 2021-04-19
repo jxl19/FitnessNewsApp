@@ -8,10 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./update-form.component.css']
 })
 export class UpdateFormComponent implements OnInit {
-newState:any;
   constructor(private newsletterService: NewsletterServiceService, private router: Router, private route:ActivatedRoute) { }
+  newState:any;
   id: any;
-
   header:string="";
   content:string="";
   footer:string="";
@@ -19,12 +18,14 @@ newState:any;
   authFirstName:string="";
   creationDate:string="";
 
-  handleSubmit() {
-    console.log({header: this.newState.header, content: this.newState.content, footer: this.newState.footer});
-    // console.log({header: this.header, content:this.content, fn: this.authFirstName, ln: this.authLastName, cd:this.creationDate});
+  handleSubmit(e:any) {
+    e.preventDefault();
+    this.newsletterService.updateNewsletter(this.id, this.newState).subscribe(data=>{
+      console.log(data);
+      this.router.navigate(['/updatenewsletter']);
+    })
     
   }
-  
 
   ngOnInit(): void {
     let state = window.history.state;
