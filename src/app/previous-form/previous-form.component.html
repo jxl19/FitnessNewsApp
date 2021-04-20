@@ -1,18 +1,25 @@
 <app-navbar></app-navbar>
 <div id="newsletter" class="card text-center">
-    <div id="n-header" class="card-header">
-      {{newState.header}}
-    </div>
-    <div id="n-body" class="card-body">
-        <span class="card-text"><small class="text-muted">{{newState.authFirstname}} {{newState.authLastname}}</small></span>
-        <p class="card-text"><small class="text-muted">{{newState.datePublished}}</small></p>
-      <p id="n-content" class="card-text">
-        <span style="white-space: pre-line">{{newState.content}}</span>
-      </p>
-      <a id="download" class="btn">Download</a>
-    </div>
-    <div class="card-footer text-muted">
-      {{newState.footer}}
-    </div>
-
+  <div id="n-header" class="card-header">
+    {{ newState.header }}
   </div>
+  <div id="n-body" class="card-body">
+    <span class="card-text"
+      ><small class="text-muted"
+        >{{ newState.authFirstname }} {{ newState.authLastname }}</small
+      ></span
+    >
+    <p class="card-text">
+      <small class="text-muted">{{ newState.datePublished | date }}</small>
+    </p>
+    <p id="n-content" class="card-text">
+      <span style="white-space: pre-line">{{ newState.content }}</span>
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+    {{ newState.footer }}
+  </div>
+</div>
+<div id="d-container">
+  <div id="download" class="btn" (click)="downloadPDF()">Download</div>
+</div>
