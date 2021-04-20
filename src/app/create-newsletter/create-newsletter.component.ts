@@ -29,8 +29,8 @@ export class CreateNewsletterComponent implements OnInit {
     this.newsletterService.createNewsletter(this.newsletterState).subscribe(res => {
       setTimeout(() => {
         this.newsletterService.sendNewsletterToSubs().subscribe(res => {
-          this.router.navigate(['/homepage']);
         })
+        this.router.navigate(['/homepage']);
       }, 1000);
     })
   }
