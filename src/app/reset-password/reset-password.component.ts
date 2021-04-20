@@ -45,7 +45,6 @@ export class ResetPasswordComponent implements OnInit {
       this.resetservice
         .postPasswordByToken(JSON.stringify(passwordtoken))
         .subscribe((data) => {
-          console.log(data);
           this.status = data.status;
           this.response = data.response;
         });

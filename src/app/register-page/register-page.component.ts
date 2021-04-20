@@ -57,6 +57,7 @@ export class RegisterPageComponent implements OnInit {
       this.personalInfoService
         .createUser(JSON.stringify(userCreated))
         .subscribe((data) => {
+          localStorage.setItem('loggedIn', "true");
           localStorage.setItem('firstName', this.firstName);
           localStorage.setItem('lastName', this.lastName);
           localStorage.setItem('id', data.userID);
@@ -68,14 +69,6 @@ export class RegisterPageComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log({
-      email: this.email,
-      password: this.password,
-      confirm: this.confirmPassword,
-      fn: this.firstName,
-      ln: this.lastName,
-      wantsMail: this.subChecked,
-    });
     let validEmail = this.validateEmail(this.email);
     if (this.password === this.confirmPassword && validEmail) {
       this.handleResgisterUser();

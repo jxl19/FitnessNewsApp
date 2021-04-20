@@ -10,6 +10,7 @@ import { PreviousFormComponent } from './previous-form/previous-form.component';
 import { PreviousNewsletterComponent } from './previous-newsletter/previous-newsletter.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthGuardService } from './services/auth-guard.service';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { UpdateInformationComponent } from './update-information/update-information.component';
 import { UpdateNewsletterComponent } from './update-newsletter/update-newsletter.component';
@@ -17,14 +18,14 @@ import { UpdateNewsletterComponent } from './update-newsletter/update-newsletter
 const routes: Routes = [
   {path:'', component:LandingPageComponent},
   {path:'login', component:LoginComponent},
-  {path:'homepage', component:HomePageComponent},
-  {path:'createnewsletter', component:CreateNewsletterComponent},
+  {path:'homepage', component:HomePageComponent,canActivate: [AuthGuardService]},
+  {path:'createnewsletter', component:CreateNewsletterComponent,canActivate: [AuthGuardService]},
   {path:'register', component:RegisterPageComponent},
-  {path:'updateinfo', component:UpdateInformationComponent},
-  {path:'previousnewsletters', component:PreviousNewsletterComponent},
-  {path:'updatenewsletter', component:UpdateNewsletterComponent},
-  {path:'updatenewsletter/:id', component:UpdateFormComponent},
-  {path:'previousnewsletters/:id', component:PreviousFormComponent},
+  {path:'updateinfo', component:UpdateInformationComponent,canActivate: [AuthGuardService]},
+  {path:'previousnewsletters', component:PreviousNewsletterComponent,canActivate: [AuthGuardService]},
+  {path:'updatenewsletter', component:UpdateNewsletterComponent,canActivate: [AuthGuardService]},
+  {path:'updatenewsletter/:id', component:UpdateFormComponent,canActivate: [AuthGuardService]},
+  {path:'previousnewsletters/:id', component:PreviousFormComponent,canActivate: [AuthGuardService]},
   {path:'forgotpass', component:ForgotPassComponent},
   {path:'pageNotFound', component: NotfoundComponent},
   {path:'resetpass', pathMatch: 'full', component:ResetPasswordComponent},

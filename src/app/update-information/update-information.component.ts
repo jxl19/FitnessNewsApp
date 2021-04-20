@@ -27,7 +27,6 @@ export class UpdateInformationComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log({password: this.password, confirm:this.confirmPassword, fn: this.firstName, ln: this.lastName, wantsMail: this.subChecked});
     const userData = {
       "fName" : this.firstName,
       "lName" : this.lastName,
