@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import html2canvas from 'html2canvas';
 import { NewsletterServiceService } from '../services/newsletter-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-previous-form',
@@ -24,9 +26,23 @@ export class PreviousFormComponent implements OnInit {
           this.newState=data;
         })
       })
-
     }
   }
 
+  
+  downloadPDF() {
+    const doc = new jsPDF();
+    let data:any = document.getElementById('newsletter');
+    let name:any = document.getElementById('n-header')?.innerHTML;
+    html2canvas(data).then(((canvas: { toDataURL: (arg0: string, arg1: number) => any; }) => {
+      let width = 250;
+      let fileHeight =  250;
+      const fileUri = canvas.toDataURL('image/png', 0.1 );
+      let pdf = new jsPDF('p', 'mm', [250, 250]);
+      let pos = 0;
+      pdf.addImage(fileUri, 'png', 0, pos, width, fileHeight, undefined, 'FAST');
+      pdf.save(`${name}.pdf`);
+    }))
+  }
   
 }

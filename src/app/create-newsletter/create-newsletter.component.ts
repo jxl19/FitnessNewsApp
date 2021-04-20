@@ -19,7 +19,7 @@ export class CreateNewsletterComponent implements OnInit {
     authFirstName: localStorage.getItem('firstName'),
     authLastName: localStorage.getItem('lastName')
   }
-//we can send some kind of token on navigate, then remove that token after and only then it will upload to s3 if token exist
+
   ngOnInit(): void {
   }
 

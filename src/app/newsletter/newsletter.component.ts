@@ -23,11 +23,12 @@ export class NewsletterComponent implements OnInit {
   upload:any="";
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe((data) => {
+      let str = data[data.length - 1].header + "_" + data[data.length - 1].newsletterID.toString();
       this.newsletter = data[data.length - 1];
       setTimeout(() => {
         this.upload = localStorage.getItem('upload');
         if(this.upload) {
-          this.uploadPDF(data[data.length - 1].newsletterID);
+          this.uploadPDF(str);
           localStorage.removeItem('upload');
         } 
       }, 1000);
@@ -53,6 +54,7 @@ export class NewsletterComponent implements OnInit {
   downloadPDF() {
     const doc = new jsPDF();
     let data:any = document.getElementById('newsletter');
+    let name:any = document.getElementById('n-header')?.innerHTML;
     html2canvas(data).then(((canvas: { toDataURL: (arg0: string, arg1: number) => any; }) => {
       let width = 250;
       let fileHeight =  250;
@@ -61,7 +63,7 @@ export class NewsletterComponent implements OnInit {
       let pdf = new jsPDF('p', 'mm', [250, 250]);
       let pos = 0;
       pdf.addImage(fileUri, 'png', 0, pos, width, fileHeight, undefined, 'FAST');
-      pdf.save('demo.pdf');
+      pdf.save(`${name}.pdf`);
     }))
   }
 
