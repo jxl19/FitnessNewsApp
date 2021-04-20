@@ -15,6 +15,14 @@ export class NewsletterServiceService {
       'Content-Type': 'application/json'
     })
   }
+
+  sendNewsletterToSubs(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + "sendtosubscribers")
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
   createNewsletter(newsletter:any): Observable<any>{
     return this.http.post<any>(this.baseUrl + "createnews", newsletter, this.httpOptions)
     .pipe(

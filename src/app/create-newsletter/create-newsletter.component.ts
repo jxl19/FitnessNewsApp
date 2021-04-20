@@ -28,7 +28,9 @@ export class CreateNewsletterComponent implements OnInit {
     localStorage.setItem('upload', 'true');
     this.newsletterService.createNewsletter(this.newsletterState).subscribe(res => {
       setTimeout(() => {
-        this.router.navigate(['/homepage']);
+        this.newsletterService.sendNewsletterToSubs().subscribe(res => {
+          this.router.navigate(['/homepage']);
+        })
       }, 1000);
     })
   }
