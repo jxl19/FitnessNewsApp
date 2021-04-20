@@ -21,7 +21,6 @@ export class UpdateFormComponent implements OnInit {
   handleSubmit(e:any) {
     e.preventDefault();
     this.newsletterService.updateNewsletter(this.id, this.newState).subscribe(data=>{
-      console.log(data);
       this.router.navigate(['/updatenewsletter']);
     })
     

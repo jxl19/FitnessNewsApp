@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     this.loginService.loginUser(this.email).subscribe(data => {
       if(data.email === this.email && data.password === this.password){
-          console.log(data);
+          localStorage.setItem('loggedIn', "true");
           localStorage.setItem('firstName', data.personalInfo.fName);
           localStorage.setItem('lastName', data.personalInfo.lName);
           localStorage.setItem('id', data.personalInfo.userID);
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
       this.invalid = "Invalid Username or Password";
     },
     (error) => {
-      console.log(error);
       this.invalid = "Invalid Username or Password";
     })
   }

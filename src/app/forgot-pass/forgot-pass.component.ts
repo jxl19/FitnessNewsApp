@@ -29,8 +29,6 @@ export class ForgotPassComponent implements OnInit {
   handleSubmit(e:any) {
     e.preventDefault();
     this.forgotService.accessSpecificEmail(this.email).subscribe(data => {
-      console.log("something")
-      console.log(data)
       this.status = data.status
       this.response = data.response
     });

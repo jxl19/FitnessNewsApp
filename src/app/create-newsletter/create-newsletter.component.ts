@@ -24,7 +24,6 @@ export class CreateNewsletterComponent implements OnInit {
   }
 
   createNewsLetter() {
-    console.log(this.newsletterState)
     this.newsletterState.datePublished = new Date().toISOString().split('T')[0];
     localStorage.setItem('upload', 'true');
     this.newsletterService.createNewsletter(this.newsletterState).subscribe(res => {
