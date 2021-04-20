@@ -49,6 +49,7 @@ export class ResetPasswordComponent implements OnInit {
           this.status = data.status;
           this.response = data.response;
         });
+      this.router.navigate(['/login']);
     } else {
       this.response = "Password does not match";
     }

@@ -14,10 +14,8 @@
             placeholder="Enter email"[(ngModel)]="email" 
             (ngModelChange)="handleEmail($event)" required>
           </div>
-
           <button id="login-button" (click)="handleSubmit($event)">Submit</button>
           <p>{{status}}{{response}}</p>
-          
         </form>
       </div>
     </div>
