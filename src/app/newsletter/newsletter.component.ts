@@ -24,6 +24,11 @@ export class NewsletterComponent implements OnInit {
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe((data) => {
       let str = data[data.length - 1].header + "_" + data[data.length - 1].newsletterID.toString();
+      let idsList = [];
+      for (let x of data) {
+        idsList.push(x.newsletterID);
+      }
+      this.mostRecentId = idsList.sort((a,b) => a - b)[idsList.length - 1];
       this.newsletter = data[data.length - 1];
       setTimeout(() => {
         this.upload = localStorage.getItem('upload');

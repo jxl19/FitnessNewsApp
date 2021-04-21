@@ -18,6 +18,7 @@ export class UpdateNewsletterComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe(data => {
+      data.sort((a:any, b:any) => a.newsletterID - b.newsletterID);
       this.newsletters = data;
     })
   }
