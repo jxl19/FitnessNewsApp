@@ -49,6 +49,6 @@
     "typescript": "~4.1.5"
   }, 
   "resolutions": {
-    "jspdf/file-saver": "file-saver"
+    "jspdf/file-saver": "github:eligrey/FileSaver.js#e865e37af9f9947ddcced76b549e27dc45c1cb2e"
   }
 }
