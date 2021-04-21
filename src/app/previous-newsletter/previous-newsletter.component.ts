@@ -15,6 +15,7 @@ export class PreviousNewsletterComponent implements OnInit {
   newsletter: Newsletters | any;
   ngOnInit(): void {
     this.newsletterService.getNewsletters().subscribe(data => {
+      data.sort((a:any, b:any) => a.newsletterID - b.newsletterID);
       this.newsletters = data;
     })
   }
