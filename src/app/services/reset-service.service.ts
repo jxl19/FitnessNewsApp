@@ -9,7 +9,7 @@ import { Token } from '../models/token';
   providedIn: 'root'
 })
 export class ResetServiceService {
-  baseUrl= 'http://localhost:9095/reset/resetpass/';
+  baseUrl= 'http://35.80.231.211:9095/reset/resetpass/';
   
 
   constructor(private http: HttpClient) { }

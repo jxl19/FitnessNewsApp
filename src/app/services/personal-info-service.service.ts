@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class PersonalInfoServiceService {
 
-  baseUrl = 'http://localhost:9095/user/'
+  baseUrl = 'http://35.80.231.211:9095/user/'
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({

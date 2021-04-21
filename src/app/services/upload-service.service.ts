@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UploadServiceService {
-  baseUrl = 'http://localhost:8080/fileupload/file/'
+  baseUrl = 'http://35.80.231.211:9095/fileupload/file/'
   constructor(private http: HttpClient) { }
   uploadPDF(pdf: any): Observable<any> {
     return this.http.post<any>(this.baseUrl, pdf)
