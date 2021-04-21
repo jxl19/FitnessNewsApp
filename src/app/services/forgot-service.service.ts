@@ -9,7 +9,7 @@ import { ReturnStatement } from '@angular/compiler';
   providedIn: 'root'
 })
 export class ForgotServiceService {
-  baseUrl= 'http://localhost:9095/reset/forgotpass';
+  baseUrl= 'http://35.80.231.211:9095/reset/forgotpass';
   email:String = "";
   constructor(private http:HttpClient){
 

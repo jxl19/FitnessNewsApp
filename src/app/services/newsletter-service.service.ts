@@ -8,7 +8,7 @@ import { Newsletters } from '../models/newsletters';
   providedIn: 'root'
 })
 export class NewsletterServiceService {
-  baseUrl= 'http://localhost:9095/newsletters/';
+  baseUrl= 'http://35.80.231.211:9095/newsletters/';
   constructor(private http: HttpClient) { }
   httpOptions ={
     headers: new HttpHeaders({

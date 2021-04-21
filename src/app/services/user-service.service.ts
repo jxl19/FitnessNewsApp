@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserServiceService {
-  baseUrl = 'http://localhost:9095/api/'
+  baseUrl = 'http://35.80.231.211:9095/api/'
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
