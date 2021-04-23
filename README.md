@@ -1,27 +1,40 @@
 # FitnessNews
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+## Project Description
+Fitness Newsletter will be a web application that a user can sign up to and read up on the most recent fitness newsletters. Newsletters will be managed by administrators that can create new newsletters. After creation of a newsletter, a copy of the newsletter will be stored in pdf format in the cloud. The newsletters can also be updated if there are errors. Users can sign up for this service and they can choose to receive email notifications whenever there are new newsletters posted. They can also just visit the website to check for new fitness newsletters. While logged in, they can see previous newsletters if they want to. From the newsletters a user is currently viewing, they have the option to download it as a pdf so they can keep it with then. They can also use the website to update information such as their name, password, and if they want a subscription to receive email. If they want to stop their subscription to receive email about new newsletters, users can update that as well.
 
-## Development server
+## Technologies Used
+- Java
+- JUnit
+- Jasmine
+- Karma
+- Angular 2+
+- Angular Material
+- Spring Data
+- Spring Boot
+- Spring Framework
+- Spring MVC
+- Git
+- PostgreSQL
+- AWS RDS
+- Jenkins
+- DBBeaver
+- Maven
+- DevOps
+- Log4J
+- HTML
+- CSS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
+- List of features:
+  - Users can sign up and subscribe to newsletters to be sent to their email
+  - Users can download newsletters in pdf format
+  - Users can request for a password reset if they forgot their password
+  - Users can update information
+  - Admins can create new newsletters
+  - Newsletters will be uploaded to the cloud
+ 
+## Contributors
+- Ed Aylott
+- Larissa Santos
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
